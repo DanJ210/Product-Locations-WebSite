@@ -1,0 +1,14 @@
+﻿body {
+    background-color: grey;
+}
+
+table {
+    
+    width:50%;
+    margin: auto;
+    float: left;
+}
+
+table, th, td {
+    border: 1px solid black;
+}

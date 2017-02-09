@@ -106,16 +106,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\default.css" />
     <Content Include="index.html" />
+    <Content Include="scripts\dataControl.js" />
+    <Content Include="scripts\jquery-3.1.1.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="css\" />
-    <Folder Include="scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
