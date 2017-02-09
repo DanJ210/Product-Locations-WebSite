@@ -5,20 +5,21 @@
 
 // Below here is a working main with jQuery functioning.
 ($(function main() {
-    alert("Starting");
-    
-    document.getElementsByClassName('statusType').addEventListener('click', function (ev) {
-        this; //-> element with id "statusType"
-    }, false);
-    
-    var handler = function (ev) {
-        console.log('clicked!');
-        alert("Clicked!");
-    };
+    //alert("Starting");
+    // Long way of even listening below here.
+    $('.statusType')[0];
 
-    var statusType = document.getElementsByClassName('statusType');
+    var handler = function () {
+        alert("Clicked! Heck yes!");
+    }
 
-    statusType.addEventListener('click', handler, false);
+    //$('.statusType')[0].addEventListener('click', handler);
 
-    statusType.removeEventListener('click', handler, false);
+    $('.statusType').click(function () {
+        alert("You double clicked!");
+        $('.statusType').text('You clicked');
+     });
+
+    //alert(typeof ('.statusType'));
+
 }))();
