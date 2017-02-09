@@ -5,5 +5,20 @@
 
 // Below here is a working main with jQuery functioning.
 ($(function main() {
+    alert("Starting");
+    
+    document.getElementsByClassName('statusType').addEventListener('click', function (ev) {
+        this; //-> element with id "statusType"
+    }, false);
+    
+    var handler = function (ev) {
+        console.log('clicked!');
+        alert("Clicked!");
+    };
 
+    var statusType = document.getElementsByClassName('statusType');
+
+    statusType.addEventListener('click', handler, false);
+
+    statusType.removeEventListener('click', handler, false);
 }))();
