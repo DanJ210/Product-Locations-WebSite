@@ -74,16 +74,18 @@
         var writeToCell = "#" + columnChoice + product;
         $(writeToCell).text(server);
         // Storing data to the cell of which data was written to that cell.
-        var cellData = $(writeToCell).data("productInfo", { product, columnChoice, server });
-        
-        if (cellData.data("productInfo").columnChoice === 'primary') {
-            $('body').css("background-color", "grey");
-            $(writeToCell).toggleClass('.primaryColumn');
-            $(writeToCell).addClass('.primaryColumn');
-            $('.primaryColumn').toggleClass(writeToCell);
+        var cellData = $(writeToCell).data("cellInfo", { product, columnChoice, server });
+        if (cellData.data("cellInfo").columnChoice === 'primary') {
+            //$('body').css("background-color", "grey");
+            //$(writeToCell).toggleClass('.primaryColumn');
+            $(writeToCell).addClass('primaryColumn');
+            //$('.primaryColumn').toggleClass(writeToCell);
             //$(writeToCell).css("background-color", "blue");
-            alert("Change CSS to primary.");
+            //alert("Change CSS to primary.");
+        } else if (cellData.data("cellInfo").columnChoice == 'secondary') {
+            $(writeToCell).addClass('secondaryColumn');
         }
+        
         //alert(cellData.data("productInfo").columnChoice);
         /*
         if (choice === 'primary') {

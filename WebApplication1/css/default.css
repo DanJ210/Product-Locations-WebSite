@@ -1,22 +1,50 @@
-﻿
-table {
+﻿/* Will be deleted, only meant for positioning. */
+h1 {
+    border: 1px solid green;
+}
+#table1 table {
+    border: 5px solid blue;
+}
+#table2 {
+    float: right;
+}
+/*
+#table2 {
+    position:absolute;
+    left: 51%;
+    top: 0px;
+}*/
+/*Class styling for all datatables*/
+.dataTable {
+    border: 1px solid red;
+    width: 40%;
+    height: auto;
+}
+.dataTable fieldset {
+    width: ;
+
+}
+
+.dataTable table {
+    width: 100%;
+}
+.dataTable table, th, td {
     
-    width:50%;
-    margin: auto;
-    float: left;
-}
-
-table, th, td {
+    font-size: larger;
     border: 1px solid black;
+    
 }
-
+/*Defualt sizing for fieldsets */
 .serverTable legend {
     background-color: cornflowerblue;
 }
-
+.serverTable {
+}
+/* Setting cells a color depending on the column, used by javascript */
 .primaryColumn {
-    background-color: mediumpurple;
-    color: red;
+    background-color: deepskyblue;
+    color: white;
+    text-align: center;
 }
 
 .secondaryColumn {

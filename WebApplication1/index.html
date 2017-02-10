@@ -22,131 +22,132 @@
 </head>
 <body>
     <h1 class="mainHeader">Displaying product locations on servers</h1>
-    <fieldset class="serverTable">
-        <legend>
-            Product and Server Locations
-        </legend>
-        <select class="product" id="productSelect">
-            <option value="1">NEXT.coderedweb.com</option>
-            <option value="2">demo.coderedweb.com</option>
-            <option value="3">SmartNotice</option>
-            <option value="4">NEXT API</option>
-            <option value="5">api.coderedweb.com</option>
-            <option value="6">public.coderedweb.com</option>
-            <option value="7">geo.ecngateway.com</option>
-            <option value="8">medical.smartnotice.net</option>
-            <option value="9">NEXT CNE/CGE</option>
-            <option value="10">Dashboard</option>
-            <option value="11">assurity.smartnotice.net</option>
-            <option value="12">CodeEd</option>
-            <option value="13">MyDailyCall</option>
-            <option value="14">Portal</option>
-        </select>
-        <input class="serverRadio" type="radio" name="serverSelect" value="primary">Primary</input>
-        <input class="serverRadio" type="radio" name="serverSelect" value="secondary">Secondary</input>
-        </br>
-        <select class="server">
+    <div class="dataTable" id="table1">
+        <fieldset class="serverTable">
+            <legend>
+                Product and Server Locations
+            </legend>
+            <select class="product" id="productSelect">
+                <option value="1">NEXT.coderedweb.com</option>
+                <option value="2">demo.coderedweb.com</option>
+                <option value="3">SmartNotice</option>
+                <option value="4">NEXT API</option>
+                <option value="5">api.coderedweb.com</option>
+                <option value="6">public.coderedweb.com</option>
+                <option value="7">geo.ecngateway.com</option>
+                <option value="8">medical.smartnotice.net</option>
+                <option value="9">NEXT CNE/CGE</option>
+                <option value="10">Dashboard</option>
+                <option value="11">assurity.smartnotice.net</option>
+                <option value="12">CodeEd</option>
+                <option value="13">MyDailyCall</option>
+                <option value="14">Portal</option>
+            </select>
+            <input class="serverRadio" type="radio" name="serverSelect" value="primary">Primary</input>
+            <input class="serverRadio" type="radio" name="serverSelect" value="secondary">Secondary</input>
+            </br>
+            <select class="server">
             
-            <option value="Site1-EcnWeb">Site1-ecnweb</option>
-            <option value="Site2-VirtWeb1">Site2-virtweb1</option>
-            <option value="Site3-EcnWeb">Site3-ecnweb</option>
-            <option value="EcnWeb1">Ecnweb1</option>
-            <option value="EcnWeb2">Ecnweb2</option>
-            <option value="VirtWeb1-2">Virtweb1-2</option>
-            <option value="VirtWeb3-4">Virtweb3-4</option>
-            <option value="VirtWeb1-4">Virtweb1-4</option>
-            <option value=""></option>
-            <option value="">Virtweb3-4</option>
-            <option value="Unknown">Unknown</option>
-            <option value="TBD">TBD</option>
-        </select>
-        <input type="button" value="save" id="saveButton" />
-    </fieldset>
-    
-    <div>
-        <table id="test">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Primary</th>
-                    <th>Secondary</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="productName">NEXT.coderedweb.com</td>
-                    <td class="statusType" id="primary1"></td>
-                    <td class="statusType" id="secondary1"></td>
-                </tr>
-                <tr>
-                    <td class="productName">demo.coderedweb.com</td>
-                    <td class="statusType" id="primary2"></td>
-                    <td class="statusType" id="secondary2"></td>
-                </tr>
-                <tr>
-                    <td class="productName">SmartNotice</td>
-                    <td class="statusType" id="primary3"></td>
-                    <td class="statusType" id="secondary3"></td>
-                </tr>
-                <tr>
-                    <td class="productName">NEXT API</td>
-                    <td class="statusType" id="primary4"></td>
-                    <td class="statusType" id="secondary4"></td>
-                </tr>
-                <tr>
-                    <td class="productName">api.coderedweb.com</td>
-                    <td class="statusType" id="primary5"></td>
-                    <td class="statusType" id="secondary5"></td>
-                </tr>
-                <tr>
-                    <td class="productName">public.coderedweb.com</td>
-                    <td class="statusType" id="primary6"></td>
-                    <td class="statusType" id="secondary6"></td>
-                </tr>
-                <tr>
-                    <td class="productName">geo.ecngateway.com</td>
-                    <td class="statusType" id="primary7"></td>
-                    <td class="statusType" id="secondary7"></td>
-                </tr>
-                <tr>
-                    <td class="productName">medical.smartnotice.net</td>
-                    <td class="statusType" id="primary8"></td>
-                    <td class="statusType" id="secondary8"></td>
-                </tr>
-                <tr>
-                    <td class="productName">NEXT CNE/CGE</td>
-                    <td class="statusType" id="primary9"></td>
-                    <td class="statusType" id="secondary9"></td>
-                </tr>
-                <tr>
-                    <td class="productName">Dashboard</td>
-                    <td class="statusType" id="primary10"></td>
-                    <td class="statusType" id="secondary10"></td>
-                </tr>
-                <tr>
-                    <td class="productName">assurity.smartnotice.net</td>
-                    <td class="statusType" id="primary11"></td>
-                    <td class="statusType" id="secondary11"></td>
-                </tr>
-                <tr>
-                    <td class="productName">CodeEd</td>
-                    <td class="statusType" id="primary12"></td>
-                    <td class="statusType" id="secondary12"></td>
-                </tr>
-                <tr>
-                    <td class="productName">MyDailyCall</td>
-                    <td class="statusType" id="primary13"></td>
-                    <td class="statusType" id="secondary13"></td>
-                </tr>
-                <tr>
-                    <td class="productName">Portal</td>
-                    <td class="statusType" id="primary14"></td>
-                    <td class="statusType" id="secondary14"></td>
-                </tr>
-            </tbody>
-        </table>
+                <option value="Site1-EcnWeb">Site1-ecnweb</option>
+                <option value="Site2-VirtWeb1">Site2-virtweb1</option>
+                <option value="Site3-EcnWeb">Site3-ecnweb</option>
+                <option value="EcnWeb1">Ecnweb1</option>
+                <option value="EcnWeb2">Ecnweb2</option>
+                <option value="VirtWeb1-2">Virtweb1-2</option>
+                <option value="VirtWeb3-4">Virtweb3-4</option>
+                <option value="VirtWeb1-4">Virtweb1-4</option>
+                <option value=""></option>
+                <option value="">Virtweb3-4</option>
+                <option value="Unknown">Unknown</option>
+                <option value="TBD">TBD</option>
+            </select>
+            <input type="button" value="save" id="saveButton" />
+        </fieldset>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Primary</th>
+                        <th>Secondary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="productName">NEXT.coderedweb.com</td>
+                        <td class="statusType" id="primary1"></td>
+                        <td class="statusType" id="secondary1"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">demo.coderedweb.com</td>
+                        <td class="statusType" id="primary2"></td>
+                        <td class="statusType" id="secondary2"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">SmartNotice</td>
+                        <td class="statusType" id="primary3"></td>
+                        <td class="statusType" id="secondary3"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">NEXT API</td>
+                        <td class="statusType" id="primary4"></td>
+                        <td class="statusType" id="secondary4"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">api.coderedweb.com</td>
+                        <td class="statusType" id="primary5"></td>
+                        <td class="statusType" id="secondary5"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">public.coderedweb.com</td>
+                        <td class="statusType" id="primary6"></td>
+                        <td class="statusType" id="secondary6"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">geo.ecngateway.com</td>
+                        <td class="statusType" id="primary7"></td>
+                        <td class="statusType" id="secondary7"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">medical.smartnotice.net</td>
+                        <td class="statusType" id="primary8"></td>
+                        <td class="statusType" id="secondary8"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">NEXT CNE/CGE</td>
+                        <td class="statusType" id="primary9"></td>
+                        <td class="statusType" id="secondary9"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">Dashboard</td>
+                        <td class="statusType" id="primary10"></td>
+                        <td class="statusType" id="secondary10"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">assurity.smartnotice.net</td>
+                        <td class="statusType" id="primary11"></td>
+                        <td class="statusType" id="secondary11"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">CodeEd</td>
+                        <td class="statusType" id="primary12"></td>
+                        <td class="statusType" id="secondary12"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">MyDailyCall</td>
+                        <td class="statusType" id="primary13"></td>
+                        <td class="statusType" id="secondary13"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">Portal</td>
+                        <td class="statusType" id="primary14"></td>
+                        <td class="statusType" id="secondary14"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <div>
+    <div class="dataTable" id="table2">
         <table id="test">
             <thead>
                 <tr>
