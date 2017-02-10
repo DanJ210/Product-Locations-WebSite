@@ -12,3 +12,7 @@ table {
 table, th, td {
     border: 1px solid black;
 }
+
+.serverTable legend {
+    background-color: cornflowerblue;
+}

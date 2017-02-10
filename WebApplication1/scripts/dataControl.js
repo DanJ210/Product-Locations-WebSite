@@ -17,20 +17,25 @@
     //$('.statusType')[0].addEventListener('click', handler);
 
     $('#saveButton').click(function () {
-        //alert("You double clicked!");
-        $('.statusType').text();
         var product = $('#productSelect').val();
         var server = $('.server').val();
-        var serverChoice = checkRadioSelect();
-        if (product === '1') {
-            if (serverChoice === 'primary') {
-                $('#primary1').text(server);
-            } else if (serverChoice === 'secondary') {
-                $('#secondary1').text(server);
+        var columnChoice = $("input.serverRadio:radio[name='serverSelect']:checked").val();
+        var AMOUNTOFPRODUCTS = 14;
+        //alert(columnChoice);
+        for (var i = 1; i <= AMOUNTOFPRODUCTS; i++) {
+            if (product === i.toString()) {
+                //alert("This is a string" + i);
+                setData(product, columnChoice, server)
             }
+        }
+        /* The old way that I originally started writing this logic... WOW...
+        Replaced by above
+        if (product === '1') {
+            //alert(server);
+            setData(columnChoice, server);
             
         } else if (product === '2') {
-            $('#primary2').text(server);
+            setData(columnChoice, server);
         } else if (product === '3') {
             $('#primary3').text(server);
         } else if (product === '4') {
@@ -55,27 +60,24 @@
             $('#primary13').text(server);
         } else if (product === '14') {
             $('#primary14').text(server);
-        }
-
-        //alert(product);
+        }*/
     });
-    /*
-    switch (product) {
-        case (product === '1') {
-
-        }
-    }
-    */
-    function checkRadioSelect() {
-        var chosenServer = $('.serverRadio').val();
-        var choice;
-        if (chosenServer === 'server1') {
-            choice = 'primary';
-        } else if (chosenServer === 'server2') {
-            choice = 'secondary';
-        }
-        return choice;
-    }
-    //alert(typeof ('.statusType'));
-
+    // Was making a JSON object of data if I needed it, not complete
+    var products = {
+        "NEXT.coderedweb.com": 1,
+        "demo.coderedweb.com": 2,
+    };
+    // A function that takes all the selected values and turns it into
+    // a string id of a cell to pass to a jquery string that determines
+    // which cell to write the data to.
+    function setData(product, choice, server) {
+        var writeToCell = "#" + choice + product;
+        $(writeToCell).text(server);
+        /*
+        if (choice === 'primary') {
+            $(writeToCell).text(server);
+        } else if (choice === 'secondary') {
+            $('#secondary1').text(server);
+        } */
+    };
 }))();
