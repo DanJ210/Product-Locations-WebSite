@@ -70,9 +70,21 @@
     // A function that takes all the selected values and turns it into
     // a string id of a cell to pass to a jquery string that determines
     // which cell to write the data to.
-    function setData(product, choice, server) {
-        var writeToCell = "#" + choice + product;
+    function setData(product, columnChoice, server) {
+        var writeToCell = "#" + columnChoice + product;
         $(writeToCell).text(server);
+        // Storing data to the cell of which data was written to that cell.
+        var cellData = $(writeToCell).data("productInfo", { product, columnChoice, server });
+        
+        if (cellData.data("productInfo").columnChoice === 'primary') {
+            $('body').css("background-color", "grey");
+            $(writeToCell).toggleClass('.primaryColumn');
+            $(writeToCell).addClass('.primaryColumn');
+            $('.primaryColumn').toggleClass(writeToCell);
+            //$(writeToCell).css("background-color", "blue");
+            alert("Change CSS to primary.");
+        }
+        //alert(cellData.data("productInfo").columnChoice);
         /*
         if (choice === 'primary') {
             $(writeToCell).text(server);

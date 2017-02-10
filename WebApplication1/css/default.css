@@ -1,7 +1,4 @@
-﻿body {
-    background-color: grey;
-}
-
+﻿
 table {
     
     width:50%;
@@ -15,4 +12,13 @@ table, th, td {
 
 .serverTable legend {
     background-color: cornflowerblue;
+}
+
+.primaryColumn {
+    background-color: mediumpurple;
+    color: red;
+}
+
+.secondaryColumn {
+    background-color: mediumspringgreen;
 }
