@@ -7,15 +7,16 @@
 ($(function main() {
     //alert("Starting");
     // Long way of even listening below here.
+    /*
     $('.statusType')[0];
 
     var handler = function () {
         alert("Clicked! Heck yes!");
     }
-
+    */
     //$('.statusType')[0].addEventListener('click', handler);
 
-    $('.statusType').click(function () {
+    $('#saveButton').click(function () {
         alert("You double clicked!");
         $('.statusType').text('You clicked');
      });

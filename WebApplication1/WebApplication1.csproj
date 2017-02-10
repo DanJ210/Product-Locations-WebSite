@@ -108,6 +108,7 @@
   <ItemGroup>
     <Content Include="css\default.css" />
     <Content Include="index.html" />
+    <Content Include="php\db.connection.class.php" />
     <Content Include="scripts\dataControl.js" />
     <Content Include="scripts\jquery-3.1.1.js" />
     <Content Include="Web.config" />
@@ -115,7 +116,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SQLite3\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
