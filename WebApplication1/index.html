@@ -7,12 +7,59 @@
     <script src="scripts/dataControl.js"></script>
     <link rel="stylesheet" href="css/default.css" type="text/css" />
     <script>
-
+        /*
+        alert("Test");
+        var sqlite3 = require('sqlite3').verbose();
+        var db = new sqlite3.Database(':memory:');
+        db.serialize(function () {
+            db.run("create table lorem (info text)");
+            var stmt = db.prepare("insert into lorem values (?)");
+        });
+        db.close();
+        alert("Sqlite ran");
+        */
     </script>
 </head>
 <body>
     <h1 class="mainHeader">Displaying product locations on servers</h1>
-    <input type="button" value="save" id="saveButton" />
+    <fieldset>
+        <legend>
+
+        </legend>
+        <select>
+            <option value="">NEXT.coderedweb.com</option>
+            <option value="">demo.coderedweb.com</option>
+            <option value="">SmartNotice</option>
+            <option value="">NEXT API</option>
+            <option value="">api.coderedweb.com</option>
+            <option value="">public.coderedweb.com</option>
+            <option value="">geo.ecngateway.com</option>
+            <option value="">medical.smartnotice.net</option>
+            <option value="">medical.smartnotice.net</option>
+            <option value="">NEXT CNE/CGE</option>
+            <option value="">Dashboard</option>
+            <option value="">assurity.smartnotice.net</option>
+            <option value="">CodeEd</option>
+            <option value="">MyDailyCall</option>
+            <option value="">Portal</option>
+        </select>
+        <select>
+            <option value="">Site1-ecnweb</option>
+            <option value="">Site2-virtweb1</option>
+            <option value="">Site3-ecnweb</option>
+            <option value="">Ecnweb1</option>
+            <option value="">Ecnweb2</option>
+            <option value="">Virtweb1-2</option>
+            <option value="">Virtweb3-4</option>
+            <option value="">Virtweb1-4</option>
+            <option value=""></option>
+            <option value="">Virtweb3-4</option>
+            <option value="">Unknown</option>
+            <option value="">TBD</option>
+        </select>
+        <input type="button" value="save" id="saveButton" />
+    </fieldset>
+    
     <div>
         <table id="test">
             <thead>
