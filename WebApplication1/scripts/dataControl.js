@@ -17,8 +17,19 @@
     //$('.statusType')[0].addEventListener('click', handler);
 
     $('#saveButton').click(function () {
-        alert("You double clicked!");
-        $('.statusType').text('You clicked');
+        //alert("You double clicked!");
+        $('.statusType').text();
+        var product = $('#productSelect').val();
+        var server = $('.server').val();
+
+        if (product === '1') {
+            server = $('.server').val();
+            $('#1').text(server);
+        } else {
+            server = $('.server').val();
+            $('#2').text(server);
+        }
+        //alert(product);
      });
 
     //alert(typeof ('.statusType'));
