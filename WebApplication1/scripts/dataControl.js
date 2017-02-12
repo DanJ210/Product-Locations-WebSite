@@ -1,4 +1,4 @@
-﻿/// <reference path="jquery-3.1.1.js"/>
+﻿
 // The above clode blew my mind, never knew 3 slashes existed to where you
 // could reference a JS file like that to use jQuery in an external JS file.
 
@@ -15,21 +15,31 @@
     }
     */
     //$('.statusType')[0].addEventListener('click', handler);
-    
-    $('#saveButton').click(function () {
-        var product = $('#productSelect').val();
-        var server = $('.server').val();
-        var columnChoice = $("input.serverRadio:radio[name='serverSelect']:checked").val();
-        if (columnChoice === undefined) {
-            alert("Please select primary or secondary");
+    $('.showHideButton').click(function() {
+        //alert($('.showHideButton').val());
+        if ($('.showHideButton').val() === 'Hide Choices') {
+            $('.showHideButton').val('Show Choices');
+            $('.selectionTable').hide('slow');
+        } else {
+            $('.showHideButton').val('Hide Choices');
+            $('.selectionTable').show('slow');
         }
+    });
+    $('.saveButton').click(function () {
+        //alert(this.id);
+        var dataSet = getData(this.id);
+        //alert('out of function');
+        //alert(dataSet.product);
+        //alert(dataSet.columnChoice);
+        //alert(dataSet.server);
+        
         
         var AMOUNTOFPRODUCTS = 14;
         //alert(columnChoice);
         for (var i = 1; i <= AMOUNTOFPRODUCTS; i++) {
-            if (product === i.toString()) {
+            if (dataSet.product === i.toString()) {
                 //alert("This is a string" + i);
-                setData(product, columnChoice, server)
+                setData(dataSet, this.id)
             }
         }
         /* The old way that I originally started writing this logic... WOW...
@@ -75,25 +85,21 @@
     // A function that takes all the selected values and turns it into
     // a string id of a cell to pass to a jquery string that determines
     // which cell to write the data to.
-    function setData(product, columnChoice, server) {
-        var writeToCell = "#" + columnChoice + product;
-
-        $(function() {
-            
-        });
-        $(writeToCell).text(server).fadeIn(5000);
+    
+        
         // Storing data to the cell of which data was written to that cell.
+        /*
         var cellData = $(writeToCell).data("cellInfo", { product, columnChoice, server });
         if (cellData.data("cellInfo").columnChoice === 'primary') {
             //$('body').css("background-color", "grey");
             //$(writeToCell).toggleClass('.primaryColumn');
-            $(writeToCell).addClass('primaryColumn');
+            
             //$('.primaryColumn').toggleClass(writeToCell);
             //$(writeToCell).css("background-color", "blue");
             //alert("Change CSS to primary.");
         } else if (cellData.data("cellInfo").columnChoice ==='secondary') {
-            $(writeToCell).addClass('secondaryColumn');
-        }
+            
+        }*/
         //alert(cellData.data("productInfo").columnChoice);
         /*
         if (choice === 'primary') {
@@ -101,5 +107,53 @@
         } else if (choice === 'secondary') {
             $('#secondary1').text(server);
         } */
-    };
 }))();
+
+function getData(buttonClicked) {
+    //alert('button clicked function');
+    //alert($('#serverSelect1').val());
+    var dataSet = {};
+    if (buttonClicked === 'saveButton1') {
+        dataSet.product = $('#productSelect1').val();
+        dataSet.server = $('#serverSelect1').val();
+        dataSet.columnChoice = $(".serverRadio1:radio[name='serverSelectRadio1']:checked").val();
+        //alert(dataSet.columnChoice);
+        //alert(dataSet.columnChoice);
+        if (dataSet.columnChoice === undefined) {
+            alert("Please select primary or secondary for table 1");
+        }
+    } else if (buttonClicked === 'saveButton2') {
+        //alert('button 2 clicked');
+        dataSet.product = $('#productSelect2').val();
+        dataSet.server = $('#serverSelect2').val();
+        //alert(dataSet.product);
+        //alert(dataSet.server);
+        dataSet.columnChoice = $(".serverRadio2:radio[name='serverSelectRadio2']:checked").val();
+        //alert(dataSet.columnChoice);
+        if (dataSet.columnChoice === undefined) {
+            alert("Please select primary or secondary for table 2");
+        }
+    };
+    return dataSet;
+};
+
+function setData(dataSet, buttonClicked) {
+    if (buttonClicked === 'saveButton1'){
+        var writeToCell = "#" + dataSet.columnChoice + dataSet.product;
+        $(writeToCell).text(dataSet.server);
+        if (dataSet.columnChoice === 'primary') {
+            $(writeToCell).addClass('primaryColumn');
+        } else if (dataSet.columnChoice === 'secondary') {
+            $(writeToCell).addClass('secondaryColumn');
+        };
+    } else if (buttonClicked === 'saveButton2') {
+        var writeToCell = '#' + dataSet.columnChoice + '2-' + dataSet.product;
+        //alert(writeToCell);
+        $(writeToCell).text(dataSet.server);
+        if (dataSet.columnChoice === 'primary') {
+            $(writeToCell).addClass('primaryColumn');
+        } else if (dataSet.columnChoice === 'secondary') {
+            $(writeToCell).addClass('secondaryColumn');
+        };
+    };
+};

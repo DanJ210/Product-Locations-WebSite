@@ -20,18 +20,20 @@
         db.close();
         alert("Sqlite ran");
         */
+        
     </script>   
 
 </head>
 <body>
     <h1 class="mainHeader">Displaying product locations on servers</h1>
     <div class="dataTable" id="table1">
+        <input class="showHideButton" type="button" value="Hide Choices"/>
         <div class="selectionTable">
             <fieldset class="serverTable">
                 <legend>
                     Product and Server Locations
                 </legend>
-                <select size="5" class="product" id="productSelect">
+                <select size="5" class="product" id="productSelect1">
                     <option value="1">NEXT.coderedweb.com</option>
                     <option value="2">demo.coderedweb.com</option>
                     <option value="3">SmartNotice</option>
@@ -48,11 +50,11 @@
                     <option value="14">Portal</option>
                 </select>
                 <div class="radioArea">
-                    <input class="serverRadio" type="radio" name="serverSelect" value="primary">Primary</input>
-                    <input class="serverRadio" type="radio" name="serverSelect" value="secondary">Secondary</input>
+                    <input class="serverRadio1" type="radio" name="serverSelectRadio1" value="primary">Primary</input>
+                    <input class="serverRadio1" type="radio" name="serverSelectRadio1" value="secondary">Secondary</input>
                 </div>
                 </br>
-                <select size="5" class="server">
+                <select size="5" class="server" id="serverSelect1">
                     <option value="Site1-EcnWeb">Site1-ecnweb</option>
                     <option value="Site2-VirtWeb1">Site2-virtweb1</option>
                     <option value="Site3-EcnWeb">Site3-ecnweb</option>
@@ -66,8 +68,8 @@
                     <option value="Unknown">Unknown</option>
                     <option value="TBD">TBD</option>
                 </select>
-                <div class="saveButton">
-                    <input type="button" value="Save" id="saveButton" />
+                <div class="saveButtonDiv">
+                    <input type="button" value="Save" class="saveButton" id="saveButton1" />
                 </div>
             </fieldset>
         </div>
@@ -156,22 +158,135 @@
         </div>
     </div>
     <div class="dataTable" id="table2">
-        <table id="test">
-            <thead>
-                <tr>
-                    <th>Product</th>
-                    <th>Primary</th>
-                    <th>Secondary</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <input class="showHideButton" type="button" value="Hide Choices"/>
+        <div class="selectionTable">
+            <fieldset class="serverTable">
+                <legend>
+                    Product and Server Locations
+                </legend>
+                <select size="5" class="product" id="productSelect2">
+                    <option value="1">NEXT.coderedweb.com</option>
+                    <option value="2">demo.coderedweb.com</option>
+                    <option value="3">SmartNotice</option>
+                    <option value="4">NEXT API</option>
+                    <option value="5">api.coderedweb.com</option>
+                    <option value="6">public.coderedweb.com</option>
+                    <option value="7">geo.ecngateway.com</option>
+                    <option value="8">medical.smartnotice.net</option>
+                    <option value="9">NEXT CNE/CGE</option>
+                    <option value="10">Dashboard</option>
+                    <option value="11">assurity.smartnotice.net</option>
+                    <option value="12">CodeEd</option>
+                    <option value="13">MyDailyCall</option>
+                    <option value="14">Portal</option>
+                </select>
+                <div class="radioArea">
+                    <input class="serverRadio2" type="radio" name="serverSelectRadio2" value="primary">Primary</input>
+                    <input class="serverRadio2" type="radio" name="serverSelectRadio2" value="secondary">Secondary</input>
+                </div>
+                </br>
+                <select size="5" class="server" id="serverSelect2">
+                    <option value="Site1-EcnWeb">Site1-ecnweb</option>
+                    <option value="Site2-VirtWeb1">Site2-virtweb1</option>
+                    <option value="Site3-EcnWeb">Site3-ecnweb</option>
+                    <option value="EcnWeb1">Ecnweb1</option>
+                    <option value="EcnWeb2">Ecnweb2</option>
+                    <option value="VirtWeb1-2">Virtweb1-2</option>
+                    <option value="VirtWeb3-4">Virtweb3-4</option>
+                    <option value="VirtWeb1-4">Virtweb1-4</option>
+                    <option value=""></option>
+                    <option value="">Virtweb3-4</option>
+                    <option value="Unknown">Unknown</option>
+                    <option value="TBD">TBD</option>
+                </select>
+                <div class="saveButtonDiv">
+                    <input type="button" value="Save" class="saveButton" id="saveButton2" />
+                </div>
+            </fieldset>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Primary</th>
+                        <th>Secondary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="productName">NEXT.coderedweb.com</td>
+                        <td class="statusType" id="primary2-1"></td>
+                        <td class="statusType" id="secondary2-1"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">demo.coderedweb.com</td>
+                        <td class="statusType" id="primary2-2"></td>
+                        <td class="statusType" id="secondary2-2"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">SmartNotice</td>
+                        <td class="statusType" id="primary2-3"></td>
+                        <td class="statusType" id="secondary2-3"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">NEXT API</td>
+                        <td class="statusType" id="primary2-4"></td>
+                        <td class="statusType" id="secondary2-4"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">api.coderedweb.com</td>
+                        <td class="statusType" id="primary2-5"></td>
+                        <td class="statusType" id="secondary2-5"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">public.coderedweb.com</td>
+                        <td class="statusType" id="primary2-6"></td>
+                        <td class="statusType" id="secondary2-6"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">geo.ecngateway.com</td>
+                        <td class="statusType" id="primary2-7"></td>
+                        <td class="statusType" id="secondary2-7"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">medical.smartnotice.net</td>
+                        <td class="statusType" id="primary2-8"></td>
+                        <td class="statusType" id="secondary2-8"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">NEXT CNE/CGE</td>
+                        <td class="statusType" id="primary2-9"></td>
+                        <td class="statusType" id="secondary2-9"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">Dashboard</td>
+                        <td class="statusType" id="primary2-10"></td>
+                        <td class="statusType" id="secondary2-10"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">assurity.smartnotice.net</td>
+                        <td class="statusType" id="primary2-11"></td>
+                        <td class="statusType" id="secondary2-11"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">CodeEd</td>
+                        <td class="statusType" id="primary2-12"></td>
+                        <td class="statusType" id="secondary2-12"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">MyDailyCall</td>
+                        <td class="statusType" id="primary2-13"></td>
+                        <td class="statusType" id="secondary2-13"></td>
+                    </tr>
+                    <tr>
+                        <td class="productName">Portal</td>
+                        <td class="statusType" id="primary2-14"></td>
+                        <td class="statusType" id="secondary2-14"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
