@@ -3,6 +3,9 @@ h1 {
     border: 1px solid green;
 }
 
+body {
+    background-color: lightgray;
+}
 /*
 #table2 {
     position:absolute;
@@ -48,7 +51,6 @@ h1 {
 /* Setting cells a color depending on the column, used by javascript */
 .primaryColumn {
     background-color: deepskyblue;
-    color: white;
     text-align: center;
 }
 

@@ -9,13 +9,13 @@
     // Long way of even listening below here.
     /*
     $('.statusType')[0];
-
+    
     var handler = function () {
         alert("Clicked! Heck yes!");
     }
     */
     //$('.statusType')[0].addEventListener('click', handler);
-
+    
     $('#saveButton').click(function () {
         var product = $('#productSelect').val();
         var server = $('.server').val();
@@ -77,7 +77,11 @@
     // which cell to write the data to.
     function setData(product, columnChoice, server) {
         var writeToCell = "#" + columnChoice + product;
-        $(writeToCell).fadeIn(5000).text(server);
+
+        $(function() {
+            
+        });
+        $(writeToCell).text(server).fadeIn(5000);
         // Storing data to the cell of which data was written to that cell.
         var cellData = $(writeToCell).data("cellInfo", { product, columnChoice, server });
         if (cellData.data("cellInfo").columnChoice === 'primary') {
