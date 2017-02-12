@@ -20,6 +20,10 @@
         var product = $('#productSelect').val();
         var server = $('.server').val();
         var columnChoice = $("input.serverRadio:radio[name='serverSelect']:checked").val();
+        if (columnChoice === undefined) {
+            alert("Please select primary or secondary");
+        }
+        
         var AMOUNTOFPRODUCTS = 14;
         //alert(columnChoice);
         for (var i = 1; i <= AMOUNTOFPRODUCTS; i++) {
@@ -67,12 +71,13 @@
         "NEXT.coderedweb.com": 1,
         "demo.coderedweb.com": 2,
     };
+    
     // A function that takes all the selected values and turns it into
     // a string id of a cell to pass to a jquery string that determines
     // which cell to write the data to.
     function setData(product, columnChoice, server) {
         var writeToCell = "#" + columnChoice + product;
-        $(writeToCell).text(server);
+        $(writeToCell).fadeIn(5000).text(server);
         // Storing data to the cell of which data was written to that cell.
         var cellData = $(writeToCell).data("cellInfo", { product, columnChoice, server });
         if (cellData.data("cellInfo").columnChoice === 'primary') {
@@ -82,7 +87,7 @@
             //$('.primaryColumn').toggleClass(writeToCell);
             //$(writeToCell).css("background-color", "blue");
             //alert("Change CSS to primary.");
-        } else if (cellData.data("cellInfo").columnChoice == 'secondary') {
+        } else if (cellData.data("cellInfo").columnChoice ==='secondary') {
             $(writeToCell).addClass('secondaryColumn');
         }
         //alert(cellData.data("productInfo").columnChoice);

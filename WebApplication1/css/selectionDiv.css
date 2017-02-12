@@ -1,0 +1,19 @@
+
+/* Styling for selection boxes above the tables */
+.product option {
+}
+
+/* Styling for the Save button */
+.saveButton {
+    position: relative;
+    left: 115px;
+    top: -50px;
+}
+
+.selectionTable {
+    background-color: gray;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+
+}

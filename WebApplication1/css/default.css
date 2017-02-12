@@ -2,12 +2,7 @@
 h1 {
     border: 1px solid green;
 }
-#table1 table {
-    border: 5px solid blue;
-}
-#table2 {
-    float: right;
-}
+
 /*
 #table2 {
     position:absolute;
@@ -17,14 +12,16 @@ h1 {
 /*Class styling for all datatables*/
 .dataTable {
     border: 1px solid red;
-    width: 40%;
+    width: 48%;
     height: auto;
+}
+.dataTable legend {
+    background-color: cornflowerblue;
 }
 .dataTable fieldset {
     width: ;
 
 }
-
 .dataTable table {
     width: 100%;
 }
@@ -34,11 +31,19 @@ h1 {
     border: 1px solid black;
     
 }
-/*Defualt sizing for fieldsets */
-.serverTable legend {
-    background-color: cornflowerblue;
+/* First page tables */
+#table1  {
+    border: 5px solid blue;
+    float: left;
 }
-.serverTable {
+#table2 {
+    float: right;
+}
+/* Styling the cells */
+.productName {
+    background-color: indianred;
+    color: white;
+    width: 300px;
 }
 /* Setting cells a color depending on the column, used by javascript */
 .primaryColumn {
