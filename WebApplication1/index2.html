@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <script src="editabletable/editablegrid.js"></script>
+		<!-- [DO NOT DEPLOY] --> <script src="editabletable/editablegrid_renderers.js" ></script>
+		<!-- [DO NOT DEPLOY] --> <script src="editabletable/editablegrid_editors.js" ></script>
+		<!-- [DO NOT DEPLOY] --> <script src="editabletable/editablegrid_validators.js" ></script>
+		<!-- [DO NOT DEPLOY] --> <script src="editabletable/editablegrid_utils.js" ></script>
+		<!-- [DO NOT DEPLOY] --> <script src="editabletable/editablegrid_charts.js" ></script>
+		<link rel="stylesheet" href="css/editablegrid.css" type="text/css" media="screen">
+		<script src="scripts/dataControl.js"></script>
+        <style>
+			body { font-family:'lucida grande', tahoma, verdana, arial, sans-serif; font-size:11px; }
+			h1 { font-size: 15px; }
+			a { color: #548dc4; text-decoration: none; }
+			a:hover { text-decoration: underline; }
+			table.testgrid { border-collapse: collapse; border: 1px solid #CCB; width: 800px; }
+			table.testgrid td, table.testgrid th { padding: 5px; border: 1px solid #E0E0E0; }
+			table.testgrid th { background: #E5E5E5; text-align: left; }
+			input.invalid { background: red; color: #FDFDFD; }
+		</style>
+		
+		<script>
+			window.onload = function() {
+              editableGrid = new EditableGrid("DemoGridAttach", { sortIconUp: "up.png", sortIconDown: "down.png"}); 
+
+				// we build and load the metadata in Javascript
+				editableGrid.load({ metadata: [
+					{ name: "product", datatype: "string", editable: true },
+					{ name: "primary", datatype: "string", editable: true },
+					{ name: "secondar", datatype: "integer", editable: true },
+				]});
+
+				// then we attach to the HTML table and render it
+				editableGrid.attachToHTMLTable('htmlgrid');
+				editableGrid.renderGrid();
+			} 
+		</script>
+    </head>
+    <body>
+        <fieldset class="serverTable">
+            <legend>
+                Product and Server Locations
+            </legend>
+            <select class="product" id="productSelect">
+                <option value="1">NEXT.coderedweb.com</option>
+                <option value="2">demo.coderedweb.com</option>
+                <option value="3">SmartNotice</option>
+                <option value="4">NEXT API</option>
+                <option value="5">api.coderedweb.com</option>
+                <option value="6">public.coderedweb.com</option>
+                <option value="7">geo.ecngateway.com</option>
+                <option value="8">medical.smartnotice.net</option>
+                <option value="9">NEXT CNE/CGE</option>
+                <option value="10">Dashboard</option>
+                <option value="11">assurity.smartnotice.net</option>
+                <option value="12">CodeEd</option>
+                <option value="13">MyDailyCall</option>
+                <option value="14">Portal</option>
+            </select>
+            <input class="serverRadio" type="radio" name="serverSelect" value="primary">Primary</input>
+            <input class="serverRadio" type="radio" name="serverSelect" value="secondary">Secondary</input>
+            </br>
+            <select class="server">
+            
+                <option value="Site1-EcnWeb">Site1-ecnweb</option>
+                <option value="Site2-VirtWeb1">Site2-virtweb1</option>
+                <option value="Site3-EcnWeb">Site3-ecnweb</option>
+                <option value="EcnWeb1">Ecnweb1</option>
+                <option value="EcnWeb2">Ecnweb2</option>
+                <option value="VirtWeb1-2">Virtweb1-2</option>
+                <option value="VirtWeb3-4">Virtweb3-4</option>
+                <option value="VirtWeb1-4">Virtweb1-4</option>
+                <option value=""></option>
+                <option value="">Virtweb3-4</option>
+                <option value="Unknown">Unknown</option>
+                <option value="TBD">TBD</option>
+            </select>
+            <input type="button" value="save" id="saveButton" />
+        </fieldset>
+        <table id="htmlgrid" class=testgrid>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Primary</th>
+                    <th>Secondary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="productName">NEXT.coderedweb.com</td>
+                    <td class="statusType" id="primary1"></td>
+                    <td class="statusType" id="secondary1"></td>
+                </tr>
+                <tr>
+                    <td class="productName">demo.coderedweb.com</td>
+                    <td class="statusType" id="primary2"></td>
+                    <td class="statusType" id="secondary2"></td>
+                </tr>
+                <tr>
+                    <td class="productName">SmartNotice</td>
+                    <td class="statusType" id="primary3"></td>
+                    <td class="statusType" id="secondary3"></td>
+                </tr>
+                <tr>
+                    <td class="productName">NEXT API</td>
+                    <td class="statusType" id="primary4"></td>
+                    <td class="statusType" id="secondary4"></td>
+                </tr>
+                <tr>
+                    <td class="productName">api.coderedweb.com</td>
+                    <td class="statusType" id="primary5"></td>
+                    <td class="statusType" id="secondary5"></td>
+                </tr>
+                <tr>
+                    <td class="productName">public.coderedweb.com</td>
+                    <td class="statusType" id="primary6"></td>
+                    <td class="statusType" id="secondary6"></td>
+                </tr>
+                <tr>
+                    <td class="productName">geo.ecngateway.com</td>
+                    <td class="statusType" id="primary7"></td>
+                    <td class="statusType" id="secondary7"></td>
+                </tr>
+                <tr>
+                    <td class="productName">medical.smartnotice.net</td>
+                    <td class="statusType" id="primary8"></td>
+                    <td class="statusType" id="secondary8"></td>
+                </tr>
+                <tr>
+                    <td class="productName">NEXT CNE/CGE</td>
+                    <td class="statusType" id="primary9"></td>
+                    <td class="statusType" id="secondary9"></td>
+                </tr>
+                <tr>
+                    <td class="productName">Dashboard</td>
+                    <td class="statusType" id="primary10"></td>
+                    <td class="statusType" id="secondary10"></td>
+                </tr>
+                <tr>
+                    <td class="productName">assurity.smartnotice.net</td>
+                    <td class="statusType" id="primary11"></td>
+                    <td class="statusType" id="secondary11"></td>
+                </tr>
+                <tr>
+                    <td class="productName">CodeEd</td>
+                    <td class="statusType" id="primary12"></td>
+                    <td class="statusType" id="secondary12"></td>
+                </tr>
+                <tr>
+                    <td class="productName">MyDailyCall</td>
+                    <td class="statusType" id="primary13"></td>
+                    <td class="statusType" id="secondary13"></td>
+                </tr>
+                <tr>
+                    <td class="productName">Portal</td>
+                    <td class="statusType" id="primary14"></td>
+                    <td class="statusType" id="secondary14"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

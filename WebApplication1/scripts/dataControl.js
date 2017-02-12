@@ -85,7 +85,6 @@
         } else if (cellData.data("cellInfo").columnChoice == 'secondary') {
             $(writeToCell).addClass('secondaryColumn');
         }
-        
         //alert(cellData.data("productInfo").columnChoice);
         /*
         if (choice === 'primary') {
