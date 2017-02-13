@@ -4,7 +4,7 @@ h1 {
 }
 
 body {
-    background-color: lightgray;
+    
 }
 /*
 #table2 {
@@ -14,46 +14,77 @@ body {
 }*/
 /*Class styling for all datatables*/
 .dataTable {
-    border: 1px solid red;
     width: 48%;
     height: auto;
 }
 .dataTable legend {
-    background-color: cornflowerblue;
+    background: linear-gradient(cornflowerblue, deepskyblue);
+    background: -webkit-linear-gradient(cornflowerblue, deepskyblue);
+    background: -o-linear-gradient(cornflowerblue, deepskyblue);
+    background: -moz-linear-gradient(cornflowerblue, deepskyblue);
 }
 .dataTable fieldset {
-    width: ;
 
 }
 .dataTable table {
     width: 100%;
+    border-collapse: collapse;
 }
 .dataTable table, th, td {
-    
     font-size: larger;
     border: 1px solid black;
-    
+    border-radius: 10px;
+}
+.dataTable thead {
+    background: linear-gradient(cornflowerblue, deepskyblue);
+    background: -webkit-linear-gradient(cornflowerblue, deepskyblue);
+    background: -o-linear-gradient(cornflowerblue, deepskyblue);
+    background: -moz-linear-gradient(cornflowerblue, deepskyblue);
+    color: white;
 }
 /* First page tables */
 #table1  {
-    border: 5px solid blue;
     float: left;
 }
 #table2 {
     float: right;
 }
-/* Styling the cells */
+/* Styling for the product cells */
 .productName {
-    background-color: indianred;
+    text-align: center;
+    background: linear-gradient(palevioletred, indianred);
+    background: -webkit-linear-gradient(palevioletred, indianred);
+    background: -o-linear-gradient(palevioletred, indianred);
+    background: -moz-linear-gradient(palevioletred, indianred);
     color: white;
     width: 300px;
 }
-/* Setting cells a color depending on the column, used by javascript */
+/* Setting cells to a color depending on the column, used by javascript */
 .primaryColumn {
-    background-color: deepskyblue;
+    background: linear-gradient(rebeccapurple, mediumpurple);
+    background: -webkit-linear-gradient(rebeccapurple, mediumpurple);
+    background: -o-linear-gradient(rebeccapurple, mediumpurple);
+    background: -moz-linear-gradient(rebeccapurple, mediumpurple);
+    color: white;
     text-align: center;
 }
 
 .secondaryColumn {
-    background-color: mediumspringgreen;
+    background: linear-gradient(lightgreen, mediumspringgreen);
+    background: -webkit-linear-gradient(lightgreen, mediumspringgreen);
+    background: -o-linear-gradient(lightgreen, mediumspringgreen);
+    background: -moz-linear-gradient(lightgreen, mediumspringgreen);
+    text-align: center;
+}
+.csb {
+    background-color: yellow;
+    text-align: center;
+}
+.unknown {
+    background-color: orange;
+    text-align: center;
+}
+.tbd {
+    background-color: pink;
+    text-align: center;
 }

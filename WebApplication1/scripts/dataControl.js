@@ -14,10 +14,12 @@
         alert("Clicked! Heck yes!");
     }
     */
+    //alert($('button[button-type=saveButtonTable1]'));
+    //alert($('div[class=radioArea]'));
     //$('.statusType')[0].addEventListener('click', handler);
     $('.showHideButton').click(function() {
         //alert($('.showHideButton').val());
-        alert(this.class);
+        //alert(this);
         if ($('.showHideButton').val() === 'Hide Choices') {
             $('.showHideButton').val('Show Choices');
             $('.selectionTable').hide('slow');
@@ -28,7 +30,13 @@
     });
     $('.saveButton').click(function () {
         //alert(this.id);
+        var buttonId = $(this).attr('button-type');
+        //var productId = 
+        //alert($(this).closest('select'));
+        //alert(buttonId);
+        //$('#'+buttonId).click(alert("you Saved"));
         var dataSet = getData(this.id);
+        //var dataSet = getData2(buttonId);
         //alert('out of function');
         //alert(dataSet.product);
         //alert(dataSet.columnChoice);
@@ -140,18 +148,43 @@ function getData(buttonClicked) {
     return dataSet;
 };
 
+function getData2(buttonClicked) {
+    var dataSet = {};
+
+    return dataSet;
+};
+
 function setData(dataSet, buttonClicked) {
     if (buttonClicked === 'saveButton1'){
         var writeToCell = "#" + dataSet.columnChoice + dataSet.product;
+        //alert(dataSet.server);
         $(writeToCell).text(dataSet.server);
-        if (dataSet.columnChoice === 'primary') {
-            $(writeToCell).addClass('primaryColumn');
-        } else if (dataSet.columnChoice === 'secondary') {
-            $(writeToCell).addClass('secondaryColumn');
-        };
+        //alert(writeToCell);
+        //alert(dataSet.server.search('CSB'));
+        /*
+         */
+        alert($(writeToCell).attr('class'));
+        $(writeToCell).removeClass();
+        if (dataSet.server === 'Unknown') {
+            //alert("This is unkown");
+            //alert(writeToCell);
+            $(writeToCell).addClass('unknown');
+        } else if (dataSet.server === 'TBD') {
+            $(writeToCell).addClass('tbd')
+        } else if (dataSet.server.search('CSB') === 4) {
+            $(writeToCell).addClass('csb');
+        } else {
+            if (dataSet.columnChoice === 'primary') {
+                $(writeToCell).addClass('primaryColumn');
+            } else if (dataSet.columnChoice === 'secondary') {
+                $(writeToCell).addClass('secondaryColumn');
+            };
+        }
+        //alert("cleared if");
     } else if (buttonClicked === 'saveButton2') {
         var writeToCell = '#' + dataSet.columnChoice + '2-' + dataSet.product;
         //alert(writeToCell);
+        alert(dataSet.server);
         $(writeToCell).text(dataSet.server);
         if (dataSet.columnChoice === 'primary') {
             $(writeToCell).addClass('primaryColumn');
