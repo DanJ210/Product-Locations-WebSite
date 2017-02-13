@@ -17,6 +17,7 @@
     //$('.statusType')[0].addEventListener('click', handler);
     $('.showHideButton').click(function() {
         //alert($('.showHideButton').val());
+        alert(this.class);
         if ($('.showHideButton').val() === 'Hide Choices') {
             $('.showHideButton').val('Show Choices');
             $('.selectionTable').hide('slow');
@@ -116,6 +117,8 @@ function getData(buttonClicked) {
     if (buttonClicked === 'saveButton1') {
         dataSet.product = $('#productSelect1').val();
         dataSet.server = $('#serverSelect1').val();
+        //alert(dataSet.product);
+        //alert(dataSet.server);
         dataSet.columnChoice = $(".serverRadio1:radio[name='serverSelectRadio1']:checked").val();
         //alert(dataSet.columnChoice);
         //alert(dataSet.columnChoice);
