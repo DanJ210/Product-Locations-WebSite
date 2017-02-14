@@ -125,11 +125,8 @@ function getData(buttonClicked) {
     if (buttonClicked === 'saveButton1') {
         dataSet.product = $('#productSelect1').val();
         dataSet.server = $('#serverSelect1').val();
-        //alert(dataSet.product);
-        //alert(dataSet.server);
         dataSet.columnChoice = $(".serverRadio1:radio[name='serverSelectRadio1']:checked").val();
-        //alert(dataSet.columnChoice);
-        //alert(dataSet.columnChoice);
+        dataSet.writeToCell = "#" + dataSet.columnChoice + dataSet.product;
         if (dataSet.columnChoice === undefined) {
             alert("Please select primary or secondary for table 1");
         }
@@ -137,10 +134,8 @@ function getData(buttonClicked) {
         //alert('button 2 clicked');
         dataSet.product = $('#productSelect2').val();
         dataSet.server = $('#serverSelect2').val();
-        //alert(dataSet.product);
-        //alert(dataSet.server);
         dataSet.columnChoice = $(".serverRadio2:radio[name='serverSelectRadio2']:checked").val();
-        //alert(dataSet.columnChoice);
+        dataSet.writeToCell = '#' + dataSet.columnChoice + '2-' + dataSet.product;
         if (dataSet.columnChoice === undefined) {
             alert("Please select primary or secondary for table 2");
         }
@@ -148,48 +143,31 @@ function getData(buttonClicked) {
     return dataSet;
 };
 
-function getData2(buttonClicked) {
-    var dataSet = {};
-
-    return dataSet;
-};
-
 function setData(dataSet, buttonClicked) {
     if (buttonClicked === 'saveButton1'){
-        var writeToCell = "#" + dataSet.columnChoice + dataSet.product;
-        //alert(dataSet.server);
-        $(writeToCell).text(dataSet.server);
-        //alert(writeToCell);
-        //alert(dataSet.server.search('CSB'));
-        /*
-         */
-        //alert($(writeToCell).attr('class'));
-        $(writeToCell).removeClass();
-        if (dataSet.server === 'Unknown') {
-            //alert("This is unkown");
-            //alert(writeToCell);
-            $(writeToCell).addClass('unknown');
-        } else if (dataSet.server === 'TBD') {
-            $(writeToCell).addClass('tbd')
-        } else if (dataSet.server.search('CSB') === 4) {
-            $(writeToCell).addClass('csb');
-        } else {
-            if (dataSet.columnChoice === 'primary') {
-                $(writeToCell).addClass('primaryColumn');
-            } else if (dataSet.columnChoice === 'secondary') {
-                $(writeToCell).addClass('secondaryColumn');
-            };
-        }
-        //alert("cleared if");
+        $(dataSet.writeToCell).text(dataSet.server);
+        alert("Save Button 1");
+        setCellColor(dataSet);
     } else if (buttonClicked === 'saveButton2') {
-        var writeToCell = '#' + dataSet.columnChoice + '2-' + dataSet.product;
+        $(dataSet.writeToCell).text(dataSet.server);
+        setCellColor(dataSet);
+    };
+};
+function setCellColor(dataSet) {
+    $(dataSet.writeToCell).removeClass();
+    if (dataSet.server === 'Unknown') {
+        //alert("This is unkown");
         //alert(writeToCell);
-        alert(dataSet.server);
-        $(writeToCell).text(dataSet.server);
+        $(dataSet.writeToCell).addClass('unknown');
+    } else if (dataSet.server === 'TBD') {
+        $(dataSet.writeToCell).addClass('tbd')
+    } else if (dataSet.server.search('CSB') === 4) {
+        $(dataSet.writeToCell).addClass('csb');
+    } else {
         if (dataSet.columnChoice === 'primary') {
-            $(writeToCell).addClass('primaryColumn');
+            $(dataSet.writeToCell).addClass('primaryColumn');
         } else if (dataSet.columnChoice === 'secondary') {
-            $(writeToCell).addClass('secondaryColumn');
+            $(dataSet.writeToCell).addClass('secondaryColumn');
         };
     };
 };
