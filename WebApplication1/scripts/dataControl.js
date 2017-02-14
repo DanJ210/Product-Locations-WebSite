@@ -5,7 +5,7 @@
 // could reference a JS file like that to use jQuery in an external JS file.
 // Below here is a working main with jQuery functioning.
 ($(function main() {
-    //alert("Starting");
+    alert("Starting");
     // Long way of even listening below here.
     /*
     $('.statusType')[0];
@@ -91,7 +91,7 @@
         } else if (product === '14') {
             $('#primary14').text(server);
         }*/
-    });
+        });
     // Was making a JSON object of data if I needed it, not complete
     var products = {
         "NEXT.coderedweb.com": 1,
