@@ -11,6 +11,7 @@
  *
  * Date: 2016-09-22T22:30Z
  */
+/// <reference path="jquery.tabletojson.min.js"/>
 ( function( global, factory ) {
 
 	"use strict";

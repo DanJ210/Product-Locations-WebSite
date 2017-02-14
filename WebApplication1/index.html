@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <script src="scripts/jquery-3.1.1.js"></script>
     <script src="scripts/dataControl.js"></script>
+    <script src="scripts/jquery.tabletojson.min.js"></script>
     <link rel="stylesheet" href="css/default.css" type="text/css" />
     <!-- Styling for the option area above the tables -->
     <link rel="stylesheet" href="css/selectionDiv.css" type="text/css" />
@@ -53,7 +54,7 @@
                     <input class="serverRadio1" type="radio" name="serverSelectRadio1" value="primary">Primary</input>
                     <input class="serverRadio1" type="radio" name="serverSelectRadio1" value="secondary">Secondary</input>
                 </div>
-                </br>
+                <br/>
                 <select size="5" class="server" id="serverSelect1">
                     <option value="Site1-EcnWeb">Site1-EcnWeb</option>
                     <option value="Site2-EcnWeb">Site2-EcnWeb</option>
@@ -307,4 +308,13 @@
         </div>
     </div>
 </body>
+<!--
+<script>
+    $('.saveButton').click(function() {
+            //alert("test");
+                var table = $('#tableToSave').tableToJSON();
+                alert(JSON.stringify(table));
+            });
+</script>
+-->
 </html>
