@@ -17,7 +17,6 @@
 
     //var table = $('tableToSave').tableToJSON();
     //alert(JSON.stringify(table));
-    
     //alert($('button[button-type=saveButtonTable1]'));
     //alert($('div[class=radioArea]'));
     //$('.statusType')[0].addEventListener('click', handler);
