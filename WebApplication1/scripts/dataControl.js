@@ -163,7 +163,7 @@ function setData(dataSet, buttonClicked) {
         //alert(dataSet.server.search('CSB'));
         /*
          */
-        alert($(writeToCell).attr('class'));
+        //alert($(writeToCell).attr('class'));
         $(writeToCell).removeClass();
         if (dataSet.server === 'Unknown') {
             //alert("This is unkown");
