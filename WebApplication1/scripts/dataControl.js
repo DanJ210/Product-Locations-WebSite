@@ -43,7 +43,7 @@ $('#jsSubmit').click(function() {
         $.ajax({
             url: "scripts/test.php",
             type: "POST",
-            data: jsonTable,
+            data: {message: "test"},
             dataType: "JSON",
             success: function(jsonStr) {
                 $('#result').text(JSON.stringify(jsonStr));
