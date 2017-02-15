@@ -51,8 +51,6 @@ $('#jsSubmit').click(function() {
         });
         alert("Finished");
     });
-    // Why am I not seeing the php files I made
-
     $('.saveButton').click(function () {
         
     
