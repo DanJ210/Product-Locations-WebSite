@@ -4,8 +4,29 @@
 // The above clode blew my mind, never knew 3 slashes existed to where you
 // could reference a JS file like that to use jQuery in an external JS file.
 // Below here is a working main with jQuery functioning.
+        $(document).ready(function() {
+    $('#jsSubmit').click(function() {
+        alert("clicked");
+        $.ajax({
+            url: "scripts/test.php",
+            type: "POST",
+            data: {
+                message: $('#message').val(),
+                firstName: $('#firstName').val(),
+                lastName: $('#lastName').val(),
+                email: $('#email').val()
+            },
+            dataType: "JSON",
+            success: function(jsonStr) {
+                $('#result').text(JSON.stringify(jsonStr));
+            }
+        });
+        alert("Finished");
+    });
+});
+
 ($(function main() {
-    alert("Starting");
+    //alert("Starting");
     // Long way of even listening below here.
     /*
     $('.statusType')[0];
@@ -31,11 +52,14 @@
             $('.selectionTable').show('slow');
         }
     });
+
+
+
     $('.saveButton').click(function () {
-        
         var table = $('#tableToSave').tableToJSON();
         alert(JSON.stringify(table));
-        sendData();
+    
+        //sendData(table);
         //alert(this.id);
         var buttonId = $(this).attr('button-type');
         //var productId = 
