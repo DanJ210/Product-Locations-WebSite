@@ -1,10 +1,8 @@
 <?php 
-$product = $_POST['product'];
-$primary = $_POST['primary'];
-if(isset($product)) {
+$message = $_POST['message'];
+if(isset($message)) {
     $data = array(
-        "First Product" => $product,
-        "Primary" => $primary
+        "First Product" => $message
     );
     echo json_encode($data);
 };

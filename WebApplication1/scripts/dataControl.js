@@ -5,24 +5,7 @@
 // could reference a JS file like that to use jQuery in an external JS file.
 // Below here is a working main with jQuery functioning.
         $(document).ready(function() {
-    $('#jsSubmit').click(function() {
-        alert("clicked");
-        $.ajax({
-            url: "scripts/test.php",
-            type: "POST",
-            data: {
-                message: $('#message').val(),
-                firstName: $('#firstName').val(),
-                lastName: $('#lastName').val(),
-                email: $('#email').val()
-            },
-            dataType: "JSON",
-            success: function(jsonStr) {
-                $('#result').text(JSON.stringify(jsonStr));
-            }
-        });
-        alert("Finished");
-    });
+    
 });
 
 ($(function main() {
@@ -53,11 +36,24 @@
         }
     });
 
-
-
-    $('.saveButton').click(function () {
+$('#jsSubmit').click(function() {
         var table = $('#tableToSave').tableToJSON();
         alert(JSON.stringify(table));
+        alert("clicked");
+        $.ajax({
+            url: "php/data.savefile.php",
+            type: "POST",
+            data: {message: "test"},
+            dataType: "JSON",
+            success: function(jsonStr) {
+                $('#result').text(JSON.stringify(jsonStr));
+            }
+        });
+        alert("Finished");
+    });
+
+    $('.saveButton').click(function () {
+        
     
         //sendData(table);
         //alert(this.id);
