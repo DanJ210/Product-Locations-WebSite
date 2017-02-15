@@ -1,4 +1,9 @@
 <?php 
-$name = $_POST['name']
-echo $name;
+$message = $_POST['message'];
+if(isset($message)) {
+    $data = array(
+        "First Product" => $message
+    );
+    echo json_encode($data);
+};
 ?>

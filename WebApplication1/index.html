@@ -26,6 +26,15 @@
 
 </head>
 <body>
+    <div id="result">Results go here</div>
+    <form name="contact" id="contact" action="test.php" method="post">
+            Message : <textarea type="text" name="message" id="message"></textarea><br/>
+            firstName : <input type="text" name="firstName" id="firstName"/><br/>
+            lastName : <input type="text" name="lastName" id="lastName"/><br/>
+            email : <input type="text" name="email" id="email"/><br/>
+            <input type="submit" value="send" name="submit" id="submit"/>
+            <input type="button" value="Submit" id="jsSubmit"/>
+        </form>
     <h1 class="mainHeader">Displaying product locations on servers</h1>
     <div class="dataTable" id="table1">
         <input class="showHideButton" type="button" value="Hide Choices"/>
