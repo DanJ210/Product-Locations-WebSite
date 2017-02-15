@@ -41,7 +41,7 @@ $('#jsSubmit').click(function() {
         alert(JSON.stringify(table));
         alert("clicked");
         $.ajax({
-            url: "php/data.savefile.php",
+            url: "scripts/test.php",
             type: "POST",
             data: {message: "test"},
             dataType: "JSON",
