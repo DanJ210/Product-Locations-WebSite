@@ -35,7 +35,7 @@
             $('.selectionTable').show('slow');
         }
     });
-
+// Practice code using AJAX to send to php file
 $('#jsSubmit').click(function() {
         var table = $('#tableToSave').tableToJSON();
         jsonTable = JSON.stringify(table);
