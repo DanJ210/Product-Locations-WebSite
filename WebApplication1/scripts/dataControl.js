@@ -4,9 +4,6 @@
 // The above clode blew my mind, never knew 3 slashes existed to where you
 // could reference a JS file like that to use jQuery in an external JS file.
 // Below here is a working main with jQuery functioning.
-        $(document).ready(function() {
-    
-});
 
 $().ready(function() {
     //alert("Starting");
@@ -130,6 +127,12 @@ $().ready(function() {
         } */
 });
 
+/**
+ * @function
+ * @description
+ * @param {any} buttonClicked
+ * @returns {dataSet} object containing all table cell data.
+ */
 function getData(buttonClicked) {
     //alert('button clicked function');
     //alert($('#serverSelect1').val());
@@ -155,6 +158,12 @@ function getData(buttonClicked) {
     return dataSet;
 };
 
+/**
+ * @function
+ * @description
+ * @param {any} dataSet
+ * @param {any} buttonClicked
+ */
 function setData(dataSet, buttonClicked) {
     if (buttonClicked === 'saveButton1'){
         $(dataSet.writeToCell).text(dataSet.server);
@@ -164,6 +173,11 @@ function setData(dataSet, buttonClicked) {
         setCellColor(dataSet);
     };
 };
+/**
+ * @function
+ * @description
+ * @param {any} dataSet
+ */
 function setCellColor(dataSet) {
     $(dataSet.writeToCell).removeClass();
     if (dataSet.server === 'Unknown') {

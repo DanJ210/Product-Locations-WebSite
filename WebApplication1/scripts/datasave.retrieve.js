@@ -1,6 +1,6 @@
 /// <reference path="scripts/jquery-3.1.1.js"/>
-
-($(document).ready(function() {
+alert("Second file");
+$().ready(function() {
     $('#jsSubmit').click(function() {
         var table = $('#tableToSave').tableToJSON();
         jsonTable = JSON.stringify(table);
@@ -16,8 +16,10 @@
         });
         alert("Finished");
     });
-}))();
-
+});
+$('#jsSubmit').click(function() {
+    alert("clicked")
+});
 
 function sendData(table) {
     //alert(table);
