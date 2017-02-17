@@ -4,14 +4,14 @@
 /**
     * 
     * @function document ready button click funtion
-    * @description Meant to send http request when event is triggered
+    * @description Sends http request when event is triggered to GET data from JSON file.
     * @param 
 */
 $().ready(function() {
     $('#jsSubmit').click(function() {
         //alert("Clicked");
-        //var table = $('#tableToSave').tableToJSON();
-        //jsonTable = JSON.stringify(table);
+
+        
         
         var getSavedTableJSON = new XMLHttpRequest();
         getSavedTableJSON.open('GET', 'scripts/JSON/tableData.json');
@@ -26,10 +26,9 @@ $().ready(function() {
             }
         };
         */
-        
         getSavedTableJSON.onload = function() {
-                var tableData = getSavedTableJSON.responseText;
-                $('#response').text((tableData));
+                var tableData = JSON.parse(getSavedTableJSON.responseText);
+                $('#primary1').text((JSON.stringify(tableData[0].server2)));
         };
         getSavedTableJSON.send();
         alert("finished");
@@ -49,6 +48,21 @@ $().ready(function() {
         */
     });
 });
+$().ready(function() {
+    $('#jsGet').click(function() {
+        // Was using these two lines to create JSON string out of the HTML table.
+        var table = $('#tableToSave').tableToJSON();
+        jsonTable = JSON.stringify(table);
+        alert(jsonTable);
+
+        var sendTableDataJSON = new XMLHttpRequest();
+        sendTableDataJSON.open('POST', 'scripts/JSON/newTableData.json');
+        sendTableDataJSON.send(jsonTable);
+    
+    });
+});
+
+
 /**
  * 
  * 
