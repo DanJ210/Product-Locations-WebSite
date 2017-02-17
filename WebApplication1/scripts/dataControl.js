@@ -8,7 +8,7 @@
     
 });
 
-($(function main() {
+$().ready(function() {
     //alert("Starting");
     // Long way of even listening below here.
     /*
@@ -36,21 +36,7 @@
         }
     });
 // Practice code using AJAX to send to php file
-$('#jsSubmit').click(function() {
-        var table = $('#tableToSave').tableToJSON();
-        jsonTable = JSON.stringify(table);
-        alert("clicked");
-        $.ajax({
-            url: "scripts/test.php",
-            type: "POST",
-            data: {message: "test"},
-            dataType: "JSON",
-            success: function(jsonStr) {
-                $('#result').text(JSON.stringify(jsonStr));
-            }
-        });
-        alert("Finished");
-    });
+
     $('.saveButton').click(function () {
         
     
@@ -142,7 +128,7 @@ $('#jsSubmit').click(function() {
         } else if (choice === 'secondary') {
             $('#secondary1').text(server);
         } */
-}))();
+});
 
 function getData(buttonClicked) {
     //alert('button clicked function');
