@@ -60,40 +60,7 @@ $().ready(function() {
                 setData(dataSet, this.id)
             }
         }
-        /* The old way that I originally started writing this logic... WOW...
-        Replaced by above
-        if (product === '1') {
-            //alert(server);
-            setData(columnChoice, server);
-            
-        } else if (product === '2') {
-            setData(columnChoice, server);
-        } else if (product === '3') {
-            $('#primary3').text(server);
-        } else if (product === '4') {
-            $('#primary4').text(server);
-        } else if (product === '5') {
-            $('#primary5').text(server);
-        } else if (product === '6') {
-            $('#primary6').text(server);
-        } else if (product === '7') {
-            $('#primary7').text(server);
-        } else if (product === '8') {
-            $('#primary8').text(server);
-        } else if (product === '9') {
-            $('#primary9').text(server);
-        } else if (product === '10') {
-            $('#primary10').text(server);
-        } else if (product === '11') {
-            $('#primary11').text(server);
-        } else if (product === '12') {
-            $('#primary12').text(server);
-        } else if (product === '13') {
-            $('#primary13').text(server);
-        } else if (product === '14') {
-            $('#primary14').text(server);
-        }*/
-        });
+    });
     // Was making a JSON object of data if I needed it, not complete
     var products = {
         "NEXT.coderedweb.com": 1,
@@ -103,28 +70,6 @@ $().ready(function() {
     // A function that takes all the selected values and turns it into
     // a string id of a cell to pass to a jquery string that determines
     // which cell to write the data to.
-    
-        
-        // Storing data to the cell of which data was written to that cell.
-        /*
-        var cellData = $(writeToCell).data("cellInfo", { product, columnChoice, server });
-        if (cellData.data("cellInfo").columnChoice === 'primary') {
-            //$('body').css("background-color", "grey");
-            //$(writeToCell).toggleClass('.primaryColumn');
-            
-            //$('.primaryColumn').toggleClass(writeToCell);
-            //$(writeToCell).css("background-color", "blue");
-            //alert("Change CSS to primary.");
-        } else if (cellData.data("cellInfo").columnChoice ==='secondary') {
-            
-        }*/
-        //alert(cellData.data("productInfo").columnChoice);
-        /*
-        if (choice === 'primary') {
-            $(writeToCell).text(server);
-        } else if (choice === 'secondary') {
-            $('#secondary1').text(server);
-        } */
 });
 
 /**
@@ -161,8 +106,8 @@ function getData(buttonClicked) {
 /**
  * @function
  * @description
- * @param {any} dataSet
- * @param {any} buttonClicked
+ * @param {dataSet} dataSet
+ * @param {buttonClicked} buttonClicked
  */
 function setData(dataSet, buttonClicked) {
     if (buttonClicked === 'saveButton1'){
@@ -176,7 +121,7 @@ function setData(dataSet, buttonClicked) {
 /**
  * @function
  * @description
- * @param {any} dataSet
+ * @param {dataSet} dataSet
  */
 function setCellColor(dataSet) {
     $(dataSet.writeToCell).removeClass();
