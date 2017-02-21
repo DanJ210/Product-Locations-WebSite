@@ -2,10 +2,6 @@
 h1 {
     border: 1px solid green;
 }
-
-body {
-    
-}
 /*
 #table2 {
     position:absolute;
@@ -22,9 +18,6 @@ body {
     background: -webkit-linear-gradient(cornflowerblue, deepskyblue);
     background: -o-linear-gradient(cornflowerblue, deepskyblue);
     background: -moz-linear-gradient(cornflowerblue, deepskyblue);
-}
-.dataTable fieldset {
-
 }
 .dataTable table {
     width: 100%;
@@ -43,10 +36,10 @@ body {
     color: white;
 }
 /* First page tables */
-#table1  {
+div#table1  {
     float: left;
 }
-#table2 {
+div#table2 {
     float: right;
 }
 /* Styling for the product cells */

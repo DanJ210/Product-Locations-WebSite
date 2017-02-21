@@ -1,43 +1,68 @@
 [
     
     {
-        "product2": "Test Product",
-        "server2": "SITE2",
-        "column2": "secondary"
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
     },
     {
-        "product3": "Test Product",
-        "server3": "SITE2",
-        "column3": "secondary"
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
     },
     {
-        "product4": "Test Product",
-        "server4": "SITE2",
-        "column4": "secondary"
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
     },
     {
-        "product15": "Test Product",
-        "server15": "SITE2",
-        "column15": "secondary"
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
     },
     {
-        "product2": "Test Product",
-        "server2": "SITE2",
-        "column2": "secondary"
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
     },
     {
-        "product3": "Test Product",
-        "server3": "SITE2",
-        "column3": "secondary"
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
     },
     {
-        "product4": "Test Product",
-        "server4": "SITE2",
-        "column4": "secondary"
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
     },
     {
-        "product15": "Test Product",
-        "server15": "SITE2",
-        "column15": "secondary"
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
+    },
+    {
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
+    },
+    {
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
+    },
+    {
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
+    },
+    {
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
+    },
+    {
+        "product": "Test Product",
+        "primary": "SITE2",
+        "secondary": "secondary"
     }
 ]
