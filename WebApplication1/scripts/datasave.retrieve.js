@@ -28,26 +28,26 @@ var getDataModule = function() {
     (function writeTableData() {
         var tables = ["firstProductTable", "secondProductTable"];
         var tableNumber;
-        var cellIdString;
         var columnCellId = {
+            tableFilePath: 'scripts/JSON/newTableData.json',
             primary: '#primary',
             secondary: '#secondary',
-            tableNumber: '0-',
+            tableNumber: '8-',
             count: "0",
             returnPrimary: function() { return this.primary + this.tableNumber + this.count },
             returnSecondary: function() { return this.secondary + this.tableNumber + this.count }
         };
         for (var i = 0; i < tables.length; i++) {
+            alert(i);
             if (tables[i] === "firstProductTable") {
                 columnCellId.tableNumber = "0-";
-                alert("first table");
-                requestFromJSONFile(columnCellId);
+                requestFromJSONFile();
+                
             } else if(tables[i] === "secondProductTable") {
                 columnCellId.tableNumber = "1-";
-                alert("Second Table");
-                requestFromJSONFile(columnCellId);
+                requestFromJSONFile();
             };
-            //alert("Requesting JSON");
+            columnCellId.count = 0;
         };
         
         // onreadystatechange is causing the application to freeze when it didn't in the test one I have.
@@ -61,58 +61,22 @@ var getDataModule = function() {
             }
         };
         */
-        function requestFromJSONFile(columnCellId) {
-            alert("insdie request")
+        function requestFromJSONFile() {
+            //alert(columnCellId.tableNumber);
             var getSavedTableJSON = new XMLHttpRequest();
             // In this future this will change the file to which we want data from
-            if (columnCellId.tableNumber === "0-") {
-                getSavedTableJSON.open('GET', 'scripts/JSON/newTableData.json');
-            } else if (columnCellId.tableNumer === "1-") {
-                getSavedTableJSON.open('GET', 'scripts/JSON/newTableData.json');
-            };
             
+            getSavedTableJSON.open('GET', columnCellId.tableFilePath);
             getSavedTableJSON.onload = function() {
                 var tableData = JSON.parse(getSavedTableJSON.responseText);
-                //$('#response').text(JSON.stringify(tableData));
-                //$('#primary1').text((JSON.stringify(tableData[0].server2)));
-
-                // Variable to control which TD element gets the data
-                var count = 0;
-                //sendDataToCell(getSavedTableJSON, tableNumber);
-                $.each(tableData, function(value, key) {
-                    //alert("Running .each");
-                    if (columnCellId.tableNumber === "0-") {
-                        //columnCellId.primary = '#primaryTest';
-                        //columnId_Secondary = '#primary' + count;
-                        
-                        //alert(columnCellId.primary);
-                        //alert(columnCellId.returnPrimary());
-                        //writeToCell(tableData, columnCellId, key, value);
-                        //alert(cellIdString);
-                        
-                        //$(columnCellId.returnPrimary()).text(JSON.stringify(tableData[value].primary));
-                        //$(columnCellId.returnSecondary()).text(JSON.stringify(tableData[value].secondary));
-                        alert("Each");
-                        count++;
-                    } /*else if(columnCellId.tableNumber === "1-") {
-                        //columnId_Primary = '#primary' + tableNumber + count;
-                        //columnId_Secondary = '#secondary' + tableNumber + count;
-                        //writeToCell(tableData, columnCellId, key, value);
-                        /*
-                        $('#primary'  + tableNumber + count).text(JSON.stringify(tableData[value].primary));
-                        $('#secondary'  + tableNumber +  count).text(JSON.stringify(tableData[value].secondary));
-                        
-                        count++;
-                    };*/
+                $.each(tableData, function(key, value) {
+                    $('#response').text(columnCellId.tableNumber);
+                    $(columnCellId.returnPrimary()).text(JSON.stringify(value.primary));
+                    $(columnCellId.returnSecondary()).text(JSON.stringify(value.secondary));
+                    columnCellId.count++;
                 });
             };
             getSavedTableJSON.send();
-
-            function writeToCell(tableData, columnCellId, key, value) {
-                //alert(columnCellId.returnPrimary());
-                //$(columnCellId.primary).text(JSON.stringify(tableData[value].primary));
-                //$(columnCellId.secondary).text(JSON.stringify(tableData[value].secondary));
-            };
         };
     })();
 };
