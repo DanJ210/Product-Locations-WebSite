@@ -35,28 +35,11 @@ $().ready(function() {
 // Practice code using AJAX to send to php file
 
     $('.saveButton').click(function () {
-        
-    
-        //sendData(table);
-        //alert(this.id);
         var buttonId = $(this).attr('button-type');
-        //var productId = 
-        //alert($(this).closest('select'));
-        //alert(buttonId);
-        //$('#'+buttonId).click(alert("you Saved"));
         var dataSet = getData(this.id);
-        //var dataSet = getData2(buttonId);
-        //alert('out of function');
-        //alert(dataSet.product);
-        //alert(dataSet.columnChoice);
-        //alert(dataSet.server);
-        
-        
         var AMOUNTOFPRODUCTS = 14;
-        //alert(columnChoice);
         for (var i = 1; i <= AMOUNTOFPRODUCTS; i++) {
             if (dataSet.product === i.toString()) {
-                //alert("This is a string" + i);
                 setData(dataSet, this.id)
             }
         }
@@ -105,7 +88,8 @@ function getData(buttonClicked) {
 
 /**
  * @function
- * @description
+ * @description Function that sets data to the cells and calls
+ * a function that applys a CSS style to the cell depending on the data.
  * @param {dataSet} dataSet
  * @param {buttonClicked} buttonClicked
  */
