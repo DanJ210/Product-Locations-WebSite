@@ -31,8 +31,8 @@ var getDataModule = function() {
         // To add a third table, must add table name & tableFilePath & add to returnFilePath() function.
         var tableInformation = {
             tables: ["firstProductTable", "secondProductTable"],
-            tableFilePaths: ['scripts/JSON/newFile1.json',
-                             'scripts/JSON/newFile2.json'],
+            tableFilePaths: ['scripts/JSON/testFile1.json',
+                             'scripts/JSON/testFile2.json'],
             path: 0,
             primary: '#primary',
             secondary: '#secondary',
@@ -93,8 +93,16 @@ var getDataModule = function() {
 };
 
 (function () {
-    
-});
+    localStorage.setItem($('#primary0-0').attr("id", "primary0-0"), "Smith");
+    localStorage.firstProductTable = {
+        date: "ok",
+        name: "daniel"
+    };
+    $().ready(function() {
+        $('#response').text(localStorage.getItem("primary0-0"));
+        alert($('#primary0-0').attr('primary0-0'));
+    });
+})();
 // Creating a module variable that stores the function to POST data to a JSON file
 // Trying to keep it as private and secure as possible.
 var SendDataModule = function () {
