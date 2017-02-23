@@ -1,7 +1,7 @@
 /// <reference path="scripts/jquery-3.1.1.js"/>
 
-// Function that writes data to the table when button is clicked
-// Need to change this to work when the page is first loaded or refreshed.
+// This script is meant to handle the saving and retriving of table data from the HTML page.
+// Saving to a JSON file, Reading from a JSON file, then writing to tables.
 /**
     * @function document ready button click function
     * @description Sends http request when event is triggered to GET data from JSON file.
