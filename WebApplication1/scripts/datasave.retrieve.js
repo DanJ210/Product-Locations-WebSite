@@ -31,8 +31,8 @@ var getDataModule = function() {
         // To add a third table, must add table name & tableFilePath & add to returnFilePath() function.
         var tableInformation = {
             tables: ["firstProductTable", "secondProductTable"],
-            tableFilePaths: ['scripts/JSON/testFile1.json',
-                             'scripts/JSON/testFile2.json'],
+            tableFilePaths: ['scripts/file1.json',
+                             'scripts/file2.json'],
             path: 0,
             primary: '#primary',
             secondary: '#secondary',
@@ -43,21 +43,25 @@ var getDataModule = function() {
             returnFilePath: function() { return this.path === 0? this.tableFilePaths[0] : this.path === 1? this.tableFilePaths[1] : null }
         };
         for (var i = 0; i < tableInformation.tables.length; i++) {
-            alert(i);
+            //alert(i);
             if (tableInformation.tables[i] === "firstProductTable") {
+                //alert(i);
                 tableInformation.tableNumber = "0-";
                 tableInformation.path = 0;
                 alert(tableInformation.path);
-                alert(tableInformation.tableFilePaths[0]);
-                alert(tableInformation.returnFilePath());
-                
+                alert(tableInformation.tableNumber);
+                //alert(tableInformation.tableFilePaths[0]);
+                //alert(tableInformation.returnFilePath());
+                requestFromJSONFile();
             } else if(tableInformation.tables[i] === "secondProductTable") {
                 tableInformation.tableNumber = "1-";
                 tableInformation.path = 1;
+                //alert("second Table");
                 //alert(tableInformation.returnFilePath());
                 //requestFromJSONFile();
+                requestFromJSONFile();
             };
-            requestFromJSONFile();
+            
             tableInformation.count = 0;
         };
         
@@ -76,22 +80,34 @@ var getDataModule = function() {
             //alert(columnCellId.tableNumber);
             var getSavedTableJSON = new XMLHttpRequest();
             // In this future this will change the file to which we want data from
-            
+            //alert(tableInformation.returnFilePath());
+            //alert(tableInformation.tableNumber);
+            //alert(tableInformation.path);
             getSavedTableJSON.open('GET', tableInformation.returnFilePath());
+            /*
+                Variables of the object are being set here because for some reason they are getting
+                changed before the XMLHttpRequest
+            */
+            var tableNumber = tableInformation.tableNumber;
             getSavedTableJSON.onload = function() {
                 var tableData = JSON.parse(getSavedTableJSON.responseText);
+                alert(tableInformation.tableNumber);
+                alert(tableInformation.returnPrimary());
                 $.each(tableData, function(key, value) {
+                    //$('#primary0-0').text("testing");
                     $('#response').text(tableInformation.tableNumber);
-                    $(tableInformation.returnPrimary()).text(JSON.stringify(value.primary));
-                    $(tableInformation.returnSecondary()).text(JSON.stringify(value.secondary));
+                    $(tableInformation.primary + tableNumber + tableInformation.count).text(JSON.stringify(value.primary));
+                    $(tableInformation.secondary + tableNumber + tableInformation.count).text(JSON.stringify(value.secondary));
                     tableInformation.count++;
+                    //tableInformation.tableNumber = "0-";
                 });
+                
             };
             getSavedTableJSON.send();
         };
     })();
 };
-
+/* Local storage test area
 (function () {
     localStorage.setItem($('#primary0-0').attr("id", "primary0-0"), "Smith");
     localStorage.firstProductTable = {
@@ -103,6 +119,8 @@ var getDataModule = function() {
         alert($('#primary0-0').attr('primary0-0'));
     });
 })();
+*/
+
 // Creating a module variable that stores the function to POST data to a JSON file
 // Trying to keep it as private and secure as possible.
 var SendDataModule = function () {
