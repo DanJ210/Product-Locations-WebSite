@@ -26,9 +26,9 @@ $().ready(function() {
  */
 var getDataModule = function() {
     (function writeTableData() {
-        var tables = ["firstProductTable", "secondProductTable"];
-        var tableNumber;
-        var columnCellId = {
+        //var tables = ["firstProductTable", "secondProductTable"];
+        var tableInformation = {
+            tables: ["firstProductTable", "secondProductTable"],
             tableFilePath: 'scripts/JSON/newTableData.json',
             primary: '#primary',
             secondary: '#secondary',
@@ -39,15 +39,16 @@ var getDataModule = function() {
         };
         for (var i = 0; i < tables.length; i++) {
             alert(i);
-            if (tables[i] === "firstProductTable") {
-                columnCellId.tableNumber = "0-";
-                requestFromJSONFile();
+            if (tableInformation.tables[i] === "firstProductTable") {
+                tableInformation.tableNumber = "0-";
                 
-            } else if(tables[i] === "secondProductTable") {
-                columnCellId.tableNumber = "1-";
-                requestFromJSONFile();
+                
+            } else if(tableInformation.tables[i] === "secondProductTable") {
+                tableInformation.tableNumber = "1-";
+                //requestFromJSONFile();
             };
-            columnCellId.count = 0;
+            requestFromJSONFile();
+            tableInformation.count = 0;
         };
         
         // onreadystatechange is causing the application to freeze when it didn't in the test one I have.
@@ -66,14 +67,14 @@ var getDataModule = function() {
             var getSavedTableJSON = new XMLHttpRequest();
             // In this future this will change the file to which we want data from
             
-            getSavedTableJSON.open('GET', columnCellId.tableFilePath);
+            getSavedTableJSON.open('GET', tableInformation.tableFilePath);
             getSavedTableJSON.onload = function() {
                 var tableData = JSON.parse(getSavedTableJSON.responseText);
                 $.each(tableData, function(key, value) {
-                    $('#response').text(columnCellId.tableNumber);
-                    $(columnCellId.returnPrimary()).text(JSON.stringify(value.primary));
-                    $(columnCellId.returnSecondary()).text(JSON.stringify(value.secondary));
-                    columnCellId.count++;
+                    $('#response').text(tableInformation.tableNumber);
+                    $(tableInformation.returnPrimary()).text(JSON.stringify(value.primary));
+                    $(tableInformation.returnSecondary()).text(JSON.stringify(value.secondary));
+                    tableInformation.count++;
                 });
             };
             getSavedTableJSON.send();
