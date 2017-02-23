@@ -1,6 +1,11 @@
 [
     
     {
+        "product": "First Table",
+        "primary": "SITE2",
+        "secondary": "secondary"
+    },
+    {
         "product": "Test Product",
         "primary": "SITE2",
         "secondary": "secondary"

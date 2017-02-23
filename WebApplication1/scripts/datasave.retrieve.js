@@ -27,24 +27,34 @@ $().ready(function() {
 var getDataModule = function() {
     (function writeTableData() {
         //var tables = ["firstProductTable", "secondProductTable"];
+        // Object below contains information needed about the tables to pull data from JSON files.
+        // To add a third table, must add table name & tableFilePath & add to returnFilePath() function.
         var tableInformation = {
             tables: ["firstProductTable", "secondProductTable"],
-            tableFilePath: 'scripts/JSON/newTableData.json',
+            tableFilePaths: ['scripts/JSON/newFile1.json',
+                             'scripts/JSON/newFile2.json'],
+            path: 0,
             primary: '#primary',
             secondary: '#secondary',
             tableNumber: '8-',
             count: "0",
             returnPrimary: function() { return this.primary + this.tableNumber + this.count },
-            returnSecondary: function() { return this.secondary + this.tableNumber + this.count }
+            returnSecondary: function() { return this.secondary + this.tableNumber + this.count },
+            returnFilePath: function() { return this.path === 0? this.tableFilePaths[0] : this.path === 1? this.tableFilePaths[1] : null }
         };
-        for (var i = 0; i < tables.length; i++) {
+        for (var i = 0; i < tableInformation.tables.length; i++) {
             alert(i);
             if (tableInformation.tables[i] === "firstProductTable") {
                 tableInformation.tableNumber = "0-";
-                
+                tableInformation.path = 0;
+                alert(tableInformation.path);
+                alert(tableInformation.tableFilePaths[0]);
+                alert(tableInformation.returnFilePath());
                 
             } else if(tableInformation.tables[i] === "secondProductTable") {
                 tableInformation.tableNumber = "1-";
+                tableInformation.path = 1;
+                //alert(tableInformation.returnFilePath());
                 //requestFromJSONFile();
             };
             requestFromJSONFile();
@@ -67,7 +77,7 @@ var getDataModule = function() {
             var getSavedTableJSON = new XMLHttpRequest();
             // In this future this will change the file to which we want data from
             
-            getSavedTableJSON.open('GET', tableInformation.tableFilePath);
+            getSavedTableJSON.open('GET', tableInformation.returnFilePath());
             getSavedTableJSON.onload = function() {
                 var tableData = JSON.parse(getSavedTableJSON.responseText);
                 $.each(tableData, function(key, value) {
