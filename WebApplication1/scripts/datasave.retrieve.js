@@ -48,20 +48,21 @@ var getDataModule = function() {
                 //alert(i);
                 tableInformation.tableNumber = "0-";
                 tableInformation.path = 0;
-                alert(tableInformation.path);
-                alert(tableInformation.tableNumber);
+                //alert(tableInformation.path);
+                //alert(tableInformation.tableNumber);
                 //alert(tableInformation.tableFilePaths[0]);
                 //alert(tableInformation.returnFilePath());
-                requestFromJSONFile();
+                requestFromJSONFile(tableInformation);
             } else if(tableInformation.tables[i] === "secondProductTable") {
                 tableInformation.tableNumber = "1-";
                 tableInformation.path = 1;
+                //location.reload();
                 //alert("second Table");
                 //alert(tableInformation.returnFilePath());
                 //requestFromJSONFile();
-                requestFromJSONFile();
+                requestFromJSONFile(tableInformation);
             };
-            
+            //alert("Test");
             tableInformation.count = 0;
         };
         
@@ -76,34 +77,38 @@ var getDataModule = function() {
             }
         };
         */
-        function requestFromJSONFile() {
+        function requestFromJSONFile(tableInformation) {
             //alert(columnCellId.tableNumber);
             var getSavedTableJSON = new XMLHttpRequest();
             // In this future this will change the file to which we want data from
             //alert(tableInformation.returnFilePath());
             //alert(tableInformation.tableNumber);
             //alert(tableInformation.path);
-            getSavedTableJSON.open('GET', tableInformation.returnFilePath());
+            getSavedTableJSON.open('GET', tableInformation.returnFilePath(), false);
             /*
                 Variables of the object are being set here because for some reason they are getting
                 changed before the XMLHttpRequest
             */
             var tableNumber = tableInformation.tableNumber;
-            getSavedTableJSON.onload = function() {
-                var tableData = JSON.parse(getSavedTableJSON.responseText);
-                alert(tableInformation.tableNumber);
-                alert(tableInformation.returnPrimary());
-                $.each(tableData, function(key, value) {
-                    //$('#primary0-0').text("testing");
-                    $('#response').text(tableInformation.tableNumber);
-                    $(tableInformation.primary + tableNumber + tableInformation.count).text(JSON.stringify(value.primary));
-                    $(tableInformation.secondary + tableNumber + tableInformation.count).text(JSON.stringify(value.secondary));
-                    tableInformation.count++;
-                    //tableInformation.tableNumber = "0-";
-                });
-                
+            getSavedTableJSON.onreadystatechange = function() {
+                if (getSavedTableJSON.readyState === 4) {
+                    //alert("ready");
+                    getSavedTableJSON.onload = function() {
+                        var tableData = JSON.parse(getSavedTableJSON.responseText);
+                        //alert(tableInformation.tableNumber);
+                        //alert(tableInformation.returnPrimary());
+                        $.each(tableData, function(key, value) {
+                            //$('#primary0-0').text("testing");
+                            $('#response').text(tableInformation.tableNumber);
+                            $(tableInformation.primary + tableNumber + tableInformation.count).text(JSON.stringify(value.primary));
+                            $(tableInformation.secondary + tableNumber + tableInformation.count).text(JSON.stringify(value.secondary));
+                            tableInformation.count++;
+                            //tableInformation.tableNumber = "0-";
+                        });
+                    };
+                };
             };
-            getSavedTableJSON.send();
+            getSavedTableJSON.send(null);
         };
     })();
 };
