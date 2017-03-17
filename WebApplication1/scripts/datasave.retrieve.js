@@ -7,6 +7,7 @@
     * @description Sends http request when event is triggered to GET data from JSON file.
     * @param 
 */
+
 $().ready(function() {
     $('#jsGet').click(function() {
         getDataModule();
@@ -24,6 +25,7 @@ $().ready(function() {
  * @description This variable is meant to be a module that's called when an event happens
  * like refresh or save of some kind. Gets data from JSON files and loads them to the tables.
  */
+
 var getDataModule = function() {
     (function writeTableData() {
         //var tables = ["firstProductTable", "secondProductTable"];
